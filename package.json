@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/inquisitivequin/oobis/issues"
   },
-  "homepage": "https://github.com/inquisitivequin/oobis#readme"
+  "homepage": "https://github.com/inquisitivequin/oobis#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "mocha": "^5.2.0",
+    "mongoose": "^5.1.7"
+  }
 }
