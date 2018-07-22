@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "nodemon --exec 'mocha --recursive -R min'"
+    "test": "NODE_ENV=test nodemon --exec 'mocha --recursive -R min'"
   },
   "repository": {
     "type": "git",
@@ -17,9 +17,11 @@
   },
   "homepage": "https://github.com/inquisitivequin/oobis#readme",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "mocha": "^5.2.0",
     "mongoose": "^5.1.7",
+    "nodemon": "^1.18.3",
     "supertest": "^3.1.0"
   },
   "devDependencies": {}
