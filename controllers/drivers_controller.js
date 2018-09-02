@@ -5,6 +5,16 @@ module.exports = {
     res.send({ test: 'hello' });
   },
 
+  index(req, res, next) {
+    const { lng, lat } = req.query;
+    Driver.find({ 'location.coordinates': [parseFloat(120), parseFloat(320)] })
+      .then(drivers => {
+        console.log('test');
+        res.send(drivers);
+      })
+      .catch(next);
+  },
+
   create(req, res, next) {
     const driverPrps = req.body;
     Driver.create(driverPrps)
@@ -15,8 +25,7 @@ module.exports = {
   edit(req, res, next) {
     const driverId = req.params.id;
     const driverProps = req.body;
-
-    Driver.findByIdAndUpdate({ _id: driverId }, driverProps)
+    Driver.findOneAndUpdate({ _id: driverId }, driverProps)
       .then(() => Driver.findById({ _id: driverId }))
       .then(driver => res.send(driver))
       .catch(next);
@@ -25,7 +34,7 @@ module.exports = {
   delete(req, res, next) {
     const driverId = req.params.id;
 
-    Driver.findByIdAndRemove({ _id: driverId })
+    Driver.findOneAndDelete({ _id: driverId })
       .then(driver => res.status(204).send(driver))
       .catch(next);
   }

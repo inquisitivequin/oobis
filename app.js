@@ -6,7 +6,10 @@ const app = express();
 
 mongoose.Promise = global.Promise;
 if (process.env.NODE_ENV !== 'test') {
-  mongoose.connect('mongodb://localhost/oobis');
+  mongoose.connect(
+    'mongodb://localhost:27017/oobis',
+    { useNewUrlParser: true }
+  );
 }
 
 app.use(bodyParser.json());
